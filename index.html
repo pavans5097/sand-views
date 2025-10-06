@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sand&Views - Discover Rajasthan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            color: #2c1810;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            10%, 90% { opacity: 1; }
+        }
+
+        nav {
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.85), rgba(244, 67, 54, 0.85), rgba(233, 30, 99, 0.85));
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.3);
+            border-bottom: 3px solid #ffd700;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            color: #ffd700;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero {
+            height: 650px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: fadeInOut 25s infinite;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-slide:nth-child(1) { animation-delay: 0s; background-image: url('https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1600'); }
+        .hero-slide:nth-child(2) { animation-delay: 5s; background-image: url('https://images.unsplash.com/photo-1609920658906-8223bd289001?w=1600'); }
+        .hero-slide:nth-child(3) { animation-delay: 10s; background-image: url('https://images.unsplash.com/photo-1524230659092-07f99a75c013?w=1600'); }
+        .hero-slide:nth-child(4) { animation-delay: 15s; background-image: url('https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'); }
+        .hero-slide:nth-child(5) { animation-delay: 20s; background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600'); }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,87,34,0.4), rgba(233,30,99,0.4));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.8);
+            letter-spacing: 4px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+            font-weight: 500;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+            color: #8b0000;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            border: 3px solid #ff6f00;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.4s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #ffed4e, #ffd700, #ffed4e);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #d32f2f;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6f00, #ffd700, #ff6f00);
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.3);
+            border: 3px solid #ff6f00;
+            transition: all 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) rotate(-1deg);
+            box-shadow: 0 20px 50px rgba(233, 30, 99, 0.4);
+            border-color: #e91e63;
+        }
+
+        .card-image {
+            height: 220px;
+            background: linear-gradient(135deg, #ff6f00, #f44336, #e91e63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .card-content {
+            padding: 1.8rem;
+        }
+
+        .card-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .card-content p {
+            color: #5a4a42;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Journey Map with Visual Route */
+        .journey-map {
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 4px solid #ff6f00;
+            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.3);
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .route-visual {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+
+        .route-line {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff6f00,
+                #ff6f00 15px,
+                transparent 15px,
+                transparent 25px
+            );
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .route-stop {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+        }
+
+        .route-stop:hover {
+            transform: scale(1.1);
+        }
+
+        .route-dot {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6f00, #f44336, #e91e63);
+            border: 5px solid #ffd700;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(255, 87, 34, 0.5);
+            transition: all 0.3s;
+        }
+
+        .route-stop:hover .route-dot {
+            transform: scale(1.15);
+            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.6);
+            border-color: #fff;
+        }
+
+        .route-info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            border-radius: 15px;
+            border: 2px solid #ff6f00;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .route-info h4 {
+            font-family: 'Playfair Display', serif;
+            color: #d32f2f;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .route-info p {
+            color: #5a4a42;
+            font-size: 0.9rem;
+        }
+
+        .day-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #8b0000;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border: 2px solid #ff6f00;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .photo-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.3);
+            border: 4px solid #ff6f00;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 20px 50px rgba(233, 30, 99, 0.5);
+            border-color: #e91e63;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-caption {
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            color: #d32f2f;
+            font-size: 1.1rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 4px solid #ff6f00;
+            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.3);
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d32f2f;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .info-box p {
+            color: #5a4a42;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.95), rgba(244, 67, 54, 0.95), rgba(233, 30, 99, 0.95));
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 5px solid #ffd700;
+        }
+
+        footer p {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .decorative-divider {
+            text-align: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #ff6f00, #f44336, #e91e63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 3rem 0;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        @media (max-width: 968px) {
+            .route-visual {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .route-line {
+                display: none;
+            }
+
+            .route-stop {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                justify-content: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .logo-text {
+                font-size: 1.6rem;
+            }
+
+            .logo-img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .hero {
+                height: 450px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cards-grid, .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <svg class="logo-img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#F4E5D3;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="95" fill="url(#skyGrad)" stroke="#CD853F" stroke-width="5"/>
+                    <ellipse cx="100" cy="140" rx="70" ry="20" fill="#DEB887"/>
+                    <ellipse cx="100" cy="150" rx="65" ry="18" fill="#D2B48C"/>
+                    <rect x="60" y="100" width="80" height="40" fill="#A0522D"/>
+                    <rect x="75" y="100" width="15" height="40" fill="#8B4513"/>
+                    <rect x="110" y="100" width="15" height="40" fill="#8B4513"/>
+                    <rect x="85" y="85" width="30" height="20" fill="#CD853F"/>
+                    <path d="M 40 130 Q 50 125 60 130" fill="none" stroke="#8B4513" stroke-width="2"/>
+                    <path d="M 140 130 Q 150 125 160 130" fill="none" stroke="#8B4513" stroke-width="2"/>
+                    <path d="M 30 140 L 40 150 L 50 145 L 60 150" fill="#23130D"/>
+                    <ellipse cx="115" cy="50" rx="15" ry="10" fill="#FFD700" opacity="0.9"/>
+                </svg>
+                <div class="logo-text">Sand<span>&</span>Views</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#explore">Destinations</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#photos">Gallery</a></li>
+                <li><a href="#contacts">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-slideshow">
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Discover Rajasthan</h1>
+            <p>पधारो म्हारे देश - Welcome to My Land</p>
+            <p style="font-size: 1.3rem; font-weight: 600;">Where History Meets the Horizon</p>
+            <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">Book Your Journey</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="info-box">
+            <h3>The Land of Kings</h3>
+            <p style="text-align: center;">Step into the land of valor, romance, and vibrant heritage. Rajasthan is a kaleidoscope of imposing forts, opulent palaces, shimmering lakes, and endless golden sands. With <strong>Sand & Views</strong>, you won't just see the sights—you'll live the history.</p>
+            <p style="text-align: center; margin-top: 1rem; font-weight: 600; color: #ff6f00; font-size: 1.2rem;">🌞 Best Time to Visit: October to March</p>
+        </div>
+
+        <section class="section" id="explore">
+            <h2 class="section-title">Explore Rajasthan</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">🏰</div>
+                    <div class="card-content">
+                        <h3>Jaipur - The Pink City</h3>
+                        <p><strong>UNESCO World Heritage Site</strong></p>
+                        <p>The perfect blend of royal charm and modern energy. Explore the majestic Amber Fort, iconic Hawa Mahal with 953 windows, and the grand City Palace.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">💧</div>
+                    <div class="card-content">
+                        <h3>Udaipur - The City of Lakes</h3>
+                        <p><strong>The Venice of the East</strong></p>
+                        <p>Romantic and serene. Enjoy boat cruises on Lake Pichola, marvel at the City Palace's mosaic artwork, and visit the beautiful Saheliyon Ki Bari gardens.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🐪</div>
+                    <div class="card-content">
+                        <h3>Jaisalmer - The Golden City</h3>
+                        <p><strong>Sands of Time</strong></p>
+                        <p>Experience the "Living Fort," explore intricate Patwon Ki Haveli, and enjoy Desert Safaris at Sam Sand Dunes with cultural performances under the stars.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">🕌</div>
+                    <div class="card-content">
+                        <h3>Jodhpur - The Blue City</h3>
+                        <p><strong>Gateway to Thar</strong></p>
+                        <p>Discover the mighty Mehrangarh Fort, the beautiful Jaswant Thada marble cenotaph, and vibrant Clock Tower Bazaar for authentic handicrafts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="decorative-divider">✦ ❋ ✦ ❋ ✦</div>
+
+        <section class="section" id="journey">
+            <h2 class="section-title">The Royal 8-Day Journey</h2>
+            
+            <div class="journey-map">
+                <p style="text-align: center; color: #5a4a42; font-size: 1.2rem; margin-bottom: 2rem; font-weight: 600;">
+                    <span style="color: #d32f2f; font-weight: 700; font-size: 1.4rem;">The Forts & Desert Circuit</span><br>
+                    An unforgettable journey through Rajasthan's most iconic destinations
+                </p>
+
+                <div class="route-visual">
+                    <div class="route-line"></div>
+                    
+                    <div class="route-stop" onclick="openGoogleMaps('Jaipur, Rajasthan, India')">
+                        <div class="route-dot">🏰</div>
+                        <div class="route-info">
+                            <span class="day-badge">Day 1-2</span>
+                            <h4>Jaipur</h4>
+                            <p>Amber Fort, Hawa Mahal, Jantar Mantar</p>
+                        </div>
+                    </div>
+
+                    <div class="route-stop" onclick="openGoogleMaps('Jodhpur, Rajasthan, India')">
+                        <div class="route-dot">🕌</div>
+                        <div class="route-info">
+                            <span class="day-badge">Day 3-4</span>
+                            <h4>Jodhpur</h4>
+                            <p>Mehrangarh Fort, Jaswant Thada</p>
+                        </div>
+                    </div>
+
+                    <div class="route-stop" onclick="openGoogleMaps('Jaisalmer, Rajasthan, India')">
+                        <div class="route-dot">🐪</div>
+                        <div class="route-info">
+                            <span class="day-badge">Day 5-6</span>
+                            <h4>Jaisalmer</h4>
+                            <p>Fort, Desert Safari, Sand Dunes</p>
+                        </div>
+                    </div>
+
+                    <div class="route-stop" onclick="openGoogleMaps('Udaipur, Rajasthan, India')">
+                        <div class="route-dot">💧</div>
+                        <div class="route-info">
+                            <span class="day-badge">Day 7-8</span>
+                            <h4>Udaipur</h4>
+                            <p>Lake Pichola, City Palace</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2.5rem; text-align: center; color: #5a4a42; font-size: 1.1rem; padding: 1.5rem; background: rgba(255,237,78,0.2); border-radius: 15px;">
+                    <strong style="color: #d32f2f;">Package Includes:</strong> AC transport, 7 nights accommodation, breakfast, desert dinner, guide services, all entry fees
+                </p>
+            </div>
+        </section>
+
+        <div class="decorative-divider">✦ ❋ ✦ ❋ ✦</div>
+
+        <section class="section" id="photos">
+            <h2 class="section-title">Gallery - Colors of Rajasthan</h2>
+            
+             <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800" alt="Amber Fort">
+                    <div class="photo-caption">Amber Fort, Jaipur</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1609920658906-8223bd289001?w=800" alt="Hawa Mahal">
+                    <div class="photo-caption">Hawa Mahal - Palace of Winds</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1599948210184-88954dda86e3?w=800" alt="Lake Pichola">
+                    <div class="photo-caption">Lake Pichola, Udaipur</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1524230659092-07f99a75c013?w=800" alt="Jaisalmer Fort">
+                    <div class="photo-caption">Jaisalmer Fort - Golden City</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800" alt="Mehrangarh Fort">
+                    <div class="photo-caption">Mehrangarh Fort, Jodhpur</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?w=800" alt="Sam Sand Dunes">
+                    <div class="photo-caption">Sam Sand Dunes - Desert Safari</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1585241936937-4b57c496bd96?w=800" alt="City Palace">
+                    <div class="photo-caption">City Palace, Udaipur</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1597074866923-dc0589150523?w=800" alt="Culture">
+                    <div class="photo-caption">Folk Dance & Culture</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800" alt="Jaipur Streets">
+                    <div class="photo-caption">Colorful Streets of Jaipur</div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 3rem;">
+                <h3>Rajasthan's Rich Heritage</h3>
+                <p><strong>Famous For:</strong> Rajputana Architecture, Desert Landscapes, Textiles & Jewelry</p>
+                <p><strong>Must-Try Cuisine:</strong> Dal Baati Churma and Laal Maas</p>
+                <p><strong>Shopping:</strong> Tie-Dye Fabrics (Bandhani), Blue Pottery, Miniature Paintings, Mojari footwear</p>
+                <p><strong>Festivals:</strong> Pushkar Fair (Oct/Nov), Desert Festival (Feb)</p>
+            </div>
+        </section>
+
+        <div class="decorative-divider">✦ ❋ ✦</div>
+
+        <section class="section" id="contacts">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="info-box" style="max-width: 800px; margin: 0 auto;">
+                <h3>Your Adventure Awaits</h3>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong style="color: #8b0000;">📞 Toll-Free:</strong> 1-800-ROYAL-TRIP</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong style="color: #8b0000;">📧 Email:</strong> info@sandandviews.com</p>
+                    <p style="font-size: 1.2rem;"><strong style="color: #8b0000;">📍 Office:</strong> Rajasthan, India</p>
+                </div>
+
+                <div style="background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
+                    <h4 style="color: #8b0000; margin-bottom: 1rem; text-align: center;">Why Choose Sand & Views?</h4>
+                    <p>✓ <strong>Expert Local Knowledge</strong> - Decades of experience crafting perfect itineraries</p>
+                    <p>✓ <strong>24/7 Support</strong> - Dedicated on-ground support for seamless travel</p>
+                    <p>✓ <strong>Customized Packages</strong> - Tailored to your pace and preferences</p>
+                    <p>✓ <strong>Authentic Experiences</strong> - Connect with local artisans and performers</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #d4af37, #ffd700); padding: 1.5rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
+                    <h4 style="color: #8b0000; margin-bottom: 0.5rem; font-size: 1.5rem;">Dream it. Book it. Live it.</h4>
+                    <p style="color: #2c1810; font-size: 1.1rem;"><em>Call us today for a free consultation</em></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Sand&Views | Discover the Royal Heritage of Rajasthan</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">Where Every Journey Becomes a Story</p>
+    </footer>
+
+    <script>
+        function openGoogleMaps(location) {
+            const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
