@@ -26,14 +26,15 @@
         }
 
         nav {
-            background: linear-gradient(135deg, rgba(255, 87, 34, 0.85), rgba(244, 67, 54, 0.85), rgba(233, 30, 99, 0.85));
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.75), rgba(244, 67, 54, 0.75), rgba(233, 30, 99, 0.75));
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.3);
-            border-bottom: 3px solid #ffd700;
+            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.25);
+            border-bottom: 3px solid rgba(255, 215, 0, 0.8);
         }
 
         .nav-container {
@@ -56,6 +57,8 @@
             width: 60px;
             height: 60px;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .logo-text {
@@ -126,11 +129,11 @@
             background-position: center;
         }
 
-        .hero-slide:nth-child(1) { animation-delay: 0s; background-image: url('https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1600'); }
-        .hero-slide:nth-child(2) { animation-delay: 5s; background-image: url('https://images.unsplash.com/photo-1609920658906-8223bd289001?w=1600'); }
-        .hero-slide:nth-child(3) { animation-delay: 10s; background-image: url('https://images.unsplash.com/photo-1524230659092-07f99a75c013?w=1600'); }
-        .hero-slide:nth-child(4) { animation-delay: 15s; background-image: url('https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1600'); }
-        .hero-slide:nth-child(5) { animation-delay: 20s; background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600'); }
+        .hero-slide:nth-child(1) { animation-delay: 0s; background-image: url('./images/raj1.jpg'); }
+        .hero-slide:nth-child(2) { animation-delay: 5s; background-image: url('./images/raj2.jpeg'); }
+        .hero-slide:nth-child(3) { animation-delay: 10s; background-image: url('./images/raj3.webp'); }
+        .hero-slide:nth-child(4) { animation-delay: 15s; background-image: url('./images/raj4.jpg'); }
+        .hero-slide:nth-child(5) { animation-delay: 20s; background-image: url('./images/raj5.jpg'); }
 
         .hero::before {
             content: '';
@@ -459,6 +462,276 @@
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
         }
 
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 3px solid #ff6f00;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255, 87, 34, 0.2);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.3);
+            border-color: #e91e63;
+            transform: translateY(-3px);
+        }
+
+        .faq-question {
+            padding: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #d32f2f;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #fff5e6, #ffe8cc);
+        }
+
+        .faq-icon {
+            font-size: 1.8rem;
+            font-weight: bold;
+            transition: transform 0.3s;
+            color: #ff6f00;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 1.8rem;
+            color: #5a4a42;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.8rem 1.8rem 1.8rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-answer strong {
+            color: #ff6f00;
+        }
+
+        /* Itinerary Section */
+        .itinerary-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.3);
+            border: 4px solid #ff6f00;
+        }
+
+        .itinerary-table thead {
+            background: linear-gradient(135deg, #ff6f00, #f44336, #e91e63);
+        }
+
+        .itinerary-table th {
+            padding: 1.5rem;
+            text-align: left;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .itinerary-table tbody tr {
+            border-bottom: 2px solid #ffe8cc;
+            transition: all 0.3s;
+        }
+
+        .itinerary-table tbody tr:hover {
+            background: linear-gradient(135deg, #fff5e6, #ffe8cc);
+            transform: scale(1.01);
+        }
+
+        .itinerary-table td {
+            padding: 1.5rem;
+            color: #5a4a42;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .itinerary-table .day-column {
+            font-weight: 700;
+            color: #d32f2f;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .itinerary-table .accommodation-column {
+            font-weight: 600;
+            color: #ff6f00;
+        }
+
+        .itinerary-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 3px solid #ff6f00;
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.3);
+            transition: all 0.4s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 20px 50px rgba(233, 30, 99, 0.4);
+            border-color: #e91e63;
+        }
+
+        .highlight-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: #d32f2f;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .highlight-card p {
+            color: #5a4a42;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .highlight-card strong {
+            color: #ff6f00;
+        }
+
+        /* Smart Board Optimization */
+        @media (min-width: 1920px) and (min-height: 1080px) {
+            body {
+                font-size: 18px;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 0.7rem 1.3rem;
+            }
+
+            .logo-text {
+                font-size: 2.5rem;
+            }
+
+            .logo-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .hero h1 {
+                font-size: 5rem;
+            }
+
+            .hero p {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 1.5rem 3.5rem;
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 4rem;
+            }
+
+            .card-content h3 {
+                font-size: 2rem;
+            }
+
+            .card-content p {
+                font-size: 1.3rem;
+            }
+
+            .info-box h3 {
+                font-size: 2.8rem;
+            }
+
+            .info-box p {
+                font-size: 1.3rem;
+            }
+
+            .route-dot {
+                width: 100px;
+                height: 100px;
+                font-size: 3rem;
+            }
+
+            .route-info h4 {
+                font-size: 1.8rem;
+            }
+
+            .route-info p {
+                font-size: 1.2rem;
+            }
+
+            .faq-question {
+                font-size: 1.5rem;
+                padding: 2.5rem;
+            }
+
+            .faq-answer {
+                font-size: 1.3rem;
+            }
+
+            .itinerary-table th {
+                font-size: 1.6rem;
+                padding: 2rem;
+            }
+
+            .itinerary-table td {
+                font-size: 1.3rem;
+                padding: 2rem;
+            }
+        }
+
+        /* 4K Smart Board */
+        @media (min-width: 3840px) {
+            body {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 6rem;
+            }
+
+            .hero h1 {
+                font-size: 7rem;
+            }
+        }
+
         @media (max-width: 968px) {
             .route-visual {
                 flex-direction: column;
@@ -472,69 +745,481 @@
             .route-stop {
                 width: 100%;
             }
+
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
+            nav {
+                padding: 0.6rem 0.8rem;
+            }
+
             .nav-container {
                 justify-content: center;
+                gap: 0.5rem;
             }
 
             .nav-links {
                 justify-content: center;
-                gap: 0.8rem;
+                gap: 0.3rem;
+                width: 100%;
             }
 
             .nav-links a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
+                font-size: 0.65rem;
+                padding: 0.3rem 0.4rem;
+            }
+
+            .logo {
+                gap: 0.4rem;
             }
 
             .logo-text {
-                font-size: 1.6rem;
+                font-size: 1.1rem;
+                letter-spacing: 0.5px;
             }
 
             .logo-img {
-                width: 50px;
-                height: 50px;
+                width: 35px;
+                height: 35px;
             }
 
             .hero {
-                height: 450px;
+                height: 350px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 1.6rem;
+                letter-spacing: 1px;
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
             }
 
             .section-title {
-                font-size: 2.2rem;
+                font-size: 1.5rem;
+            }
+
+            .section-title::after {
+                width: 60px;
+                height: 3px;
             }
 
             .cards-grid, .photo-grid {
                 grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .card {
+                border: 2px solid #ff6f00;
+            }
+
+            .card-image {
+                height: 150px;
+                font-size: 2.5rem;
+            }
+
+            .card-content {
+                padding: 1rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.7rem;
+            }
+
+            .card-content p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+            }
+
+            .info-box {
+                padding: 1.2rem;
+                border: 3px solid #ff6f00;
+            }
+
+            .info-box h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .info-box p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .journey-map {
+                padding: 1.2rem;
+                border: 3px solid #ff6f00;
+            }
+
+            .route-dot {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                border: 4px solid #ffd700;
+            }
+
+            .route-info {
+                padding: 0.7rem;
+            }
+
+            .route-info h4 {
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .route-info p {
+                font-size: 0.8rem;
+            }
+
+            .day-badge {
+                padding: 0.25rem 0.7rem;
+                font-size: 0.7rem;
+            }
+
+            .photo-item {
+                border: 3px solid #ff6f00;
+            }
+
+            .photo-item img {
+                height: 200px;
+            }
+
+            .photo-caption {
+                padding: 0.7rem;
+                font-size: 0.85rem;
+            }
+
+            .faq-item {
+                border: 2px solid #ff6f00;
+                margin-bottom: 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .faq-icon {
+                font-size: 1.3rem;
+            }
+
+            .faq-answer {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .faq-answer p {
+                margin-bottom: 0.6rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 1rem 1rem 1rem;
+            }
+
+            /* Itinerary mobile optimization */
+            .itinerary-table {
+                display: block;
+                overflow-x: auto;
+                border: 3px solid #ff6f00;
+            }
+
+            .itinerary-table thead {
+                display: none;
+            }
+
+            .itinerary-table tbody,
+            .itinerary-table tr,
+            .itinerary-table td {
+                display: block;
+            }
+
+            .itinerary-table tr {
+                margin-bottom: 1.2rem;
+                border: 2px solid #ff6f00;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .itinerary-table td {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .itinerary-table td strong {
+                font-size: 0.95rem;
+            }
+
+            .itinerary-table .day-column {
+                background: linear-gradient(135deg, #ff6f00, #f44336);
+                color: #fff;
+                font-size: 1rem;
+                padding: 0.7rem 0.8rem;
+            }
+
+            .itinerary-table .accommodation-column {
+                background: #fff5e6;
+                border-top: 2px solid #ffe8cc;
+                padding: 0.7rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .itinerary-highlights {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .highlight-card {
+                padding: 1.2rem;
+                border: 2px solid #ff6f00;
+            }
+
+            .highlight-card h4 {
+                font-size: 1.15rem;
+                margin-bottom: 0.7rem;
+            }
+
+            .highlight-card p {
+                font-size: 0.85rem;
+                line-height: 1.6;
             }
 
             .container {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .section {
+                margin-bottom: 2.5rem;
+            }
+
+            .decorative-divider {
+                font-size: 1.8rem;
+                margin: 1.5rem 0;
+            }
+
+            footer {
                 padding: 2rem 1rem;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
             }
         }
 
         @media (max-width: 480px) {
+            nav {
+                padding: 0.5rem 0.6rem;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .logo-img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .nav-links a {
+                font-size: 0.6rem;
+                padding: 0.25rem 0.35rem;
+                border-radius: 5px;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
+                letter-spacing: 0.5px;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
 
             .cta-button {
-                padding: 1rem 2rem;
+                padding: 0.6rem 1.3rem;
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .card-image {
+                height: 130px;
+                font-size: 2rem;
+            }
+
+            .card-content {
+                padding: 0.9rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.05rem;
+            }
+
+            .card-content p {
+                font-size: 0.8rem;
+            }
+
+            .info-box {
+                padding: 1rem;
+            }
+
+            .info-box h3 {
+                font-size: 1.25rem;
+            }
+
+            .info-box p {
+                font-size: 0.8rem;
+            }
+
+            .journey-map {
+                padding: 1rem;
+            }
+
+            .route-dot {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .route-info {
+                padding: 0.6rem;
+            }
+
+            .route-info h4 {
+                font-size: 0.9rem;
+            }
+
+            .route-info p {
+                font-size: 0.75rem;
+            }
+
+            .day-badge {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .photo-item img {
+                height: 180px;
+            }
+
+            .photo-caption {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .faq-question {
+                padding: 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            .faq-icon {
+                font-size: 1.2rem;
+            }
+
+            .faq-answer {
+                font-size: 0.8rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0 0.9rem 0.9rem 0.9rem;
+            }
+
+            .itinerary-table td {
+                padding: 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            .itinerary-table .day-column {
+                font-size: 0.95rem;
+                padding: 0.6rem 0.7rem;
+            }
+
+            .itinerary-table .accommodation-column {
+                padding: 0.6rem 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            .highlight-card {
+                padding: 1rem;
+            }
+
+            .highlight-card h4 {
+                font-size: 1.05rem;
+            }
+
+            .highlight-card p {
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 1.2rem 0.6rem;
+            }
+
+            footer {
+                padding: 1.5rem 0.8rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-links a {
+                font-size: 0.55rem;
+                padding: 0.2rem 0.3rem;
+            }
+
+            .logo-text {
+                font-size: 0.9rem;
+            }
+
+            .logo-img {
+                width: 28px;
+                height: 28px;
+            }
+
+            .hero h1 {
+                font-size: 1.2rem;
+            }
+
+            .hero p {
+                font-size: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .card-content h3 {
                 font-size: 1rem;
+            }
+
+            .info-box h3 {
+                font-size: 1.15rem;
+            }
+
+            .faq-question {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -543,32 +1228,16 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <svg class="logo-img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#F4E5D3;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="100" cy="100" r="95" fill="url(#skyGrad)" stroke="#CD853F" stroke-width="5"/>
-                    <ellipse cx="100" cy="140" rx="70" ry="20" fill="#DEB887"/>
-                    <ellipse cx="100" cy="150" rx="65" ry="18" fill="#D2B48C"/>
-                    <rect x="60" y="100" width="80" height="40" fill="#A0522D"/>
-                    <rect x="75" y="100" width="15" height="40" fill="#8B4513"/>
-                    <rect x="110" y="100" width="15" height="40" fill="#8B4513"/>
-                    <rect x="85" y="85" width="30" height="20" fill="#CD853F"/>
-                    <path d="M 40 130 Q 50 125 60 130" fill="none" stroke="#8B4513" stroke-width="2"/>
-                    <path d="M 140 130 Q 150 125 160 130" fill="none" stroke="#8B4513" stroke-width="2"/>
-                    <path d="M 30 140 L 40 150 L 50 145 L 60 150" fill="#23130D"/>
-                    <ellipse cx="115" cy="50" rx="15" ry="10" fill="#FFD700" opacity="0.9"/>
-                </svg>
+                <img src="./images/sand_views_logo-removebg-preview.png" alt="Sand&Views Logo" class="logo-img" onerror="this.style.display='none'">
                 <div class="logo-text">Sand<span>&</span>Views</div>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#explore">Destinations</a></li>
-                <li><a href="#journey">Journey</a></li>
+                <li><a href="#itinerary">Itinerary</a></li>
+                <li><a href="#journey">Journey Map</a></li>
                 <li><a href="#photos">Gallery</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contacts">Contact</a></li>
             </ul>
         </div>
@@ -641,6 +1310,283 @@
 
         <div class="decorative-divider">✦ ❋ ✦ ❋ ✦</div>
 
+        <section class="section" id="itinerary">
+            <h2 class="section-title">Detailed 8-Day Itinerary</h2>
+            
+            <div class="info-box">
+                <h3>The Royal 8-Day Journey: Forts & Desert Circuit</h3>
+                
+                <table class="itinerary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">Day</th>
+                            <th style="width: 50%;">Destination & Highlights</th>
+                            <th style="width: 35%;">Accommodation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="day-column">Day 1</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Arrival in Jaipur</strong><br>
+                                Check-in at your heritage haveli, relax and freshen up. Evening at leisure to explore a vibrant local market and sample authentic Rajasthani street food.
+                            </td>
+                            <td class="accommodation-column">Heritage Haveli Stay<br>Jaipur</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 2</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Jaipur Sightseeing</strong><br>
+                                Full day exploring: <strong>Amber Fort</strong> (majestic hilltop fort with elephant ride option), <strong>Hawa Mahal</strong> (Palace of Winds with 953 windows), <strong>Jantar Mantar</strong> (astronomical observatory), and <strong>City Palace</strong> (sprawling royal complex with museums).
+                            </td>
+                            <td class="accommodation-column">Heritage Haveli Stay<br>Jaipur</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 3</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Jaipur to Jodhpur</strong><br>
+                                Scenic drive through rural Rajasthan (approximately 5-6 hours). Check-in at your hotel. Evening visit to <strong>Mandore Gardens</strong> with beautiful cenotaphs and temples.
+                            </td>
+                            <td class="accommodation-column">Blue City Hotel<br>Jodhpur</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 4</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Jodhpur Sightseeing</strong><br>
+                                Explore the magnificent <strong>Mehrangarh Fort</strong> (one of India's largest forts with panoramic city views), <strong>Jaswant Thada</strong> (marble cenotaph with intricate carvings), and bustling <strong>Clock Tower Bazaar</strong> for handicraft shopping and local experiences.
+                            </td>
+                            <td class="accommodation-column">Blue City Hotel<br>Jodhpur</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 5</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Jodhpur to Jaisalmer</strong><br>
+                                Drive to the Golden City through the Thar Desert (approximately 5 hours). Check-in at your hotel. Evening at serene <strong>Gadisar Lake</strong> surrounded by ancient temples, perfect for sunset photography.
+                            </td>
+                            <td class="accommodation-column">Golden City Hotel<br>Jaisalmer</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 6</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Jaisalmer Desert Experience</strong><br>
+                                Morning: <strong>Jaisalmer Fort</strong> (Living Fort where people still reside) & <strong>Patwon Ki Haveli</strong> (intricately carved sandstone mansion). Afternoon: <strong>Desert Safari at Sam Sand Dunes</strong> on camel or Jeep. Evening: Authentic Rajasthani cultural show featuring <strong>Manganiyars and Langas</strong> folk music and mesmerizing <strong>Kalbeliya dance</strong>. Overnight in luxury desert camp under the stars.
+                            </td>
+                            <td class="accommodation-column">Luxury Desert Camp<br>Sam Sand Dunes</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 7</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Jaisalmer to Udaipur</strong><br>
+                                Flight/overnight train option or long scenic drive (approximately 9-10 hours by road). Arrival in the romantic City of Lakes. Evening at leisure for a brief walk around the lake and exploring local cafes.
+                            </td>
+                            <td class="accommodation-column">Lake View Resort<br>Udaipur</td>
+                        </tr>
+                        <tr>
+                            <td class="day-column">Day 8</td>
+                            <td>
+                                <strong style="color: #d32f2f; font-size: 1.2rem;">Udaipur Sightseeing & Departure</strong><br>
+                                Morning: <strong>City Palace</strong> (grand lakeside palace with mosaic artwork and museums). Afternoon: Sunset <strong>boat ride on Lake Pichola</strong> viewing City Palace, Lake Palace, and Jag Mandir. Visit <strong>Saheliyon Ki Bari</strong> (Garden of the Maidens). Evening airport/railway station transfer for departure.
+                            </td>
+                            <td class="accommodation-column">—</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #fff5e6, #ffe8cc); border-radius: 15px; border: 3px solid #ff6f00;">
+                    <h4 style="color: #d32f2f; font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; font-family: 'Playfair Display', serif;">Package Inclusions</h4>
+                    <p style="color: #5a4a42; font-size: 1.1rem; line-height: 2;">
+                        ✓ <strong style="color: #ff6f00;">All Internal Travel:</strong> AC Car/Train between cities<br>
+                        ✓ <strong style="color: #ff6f00;">7 Nights Accommodation:</strong> Heritage havelis, boutique hotels, and luxury desert camp<br>
+                        ✓ <strong style="color: #ff6f00;">Daily Breakfast:</strong> At all accommodations<br>
+                        ✓ <strong style="color: #ff6f00;">1 Desert Dinner:</strong> Traditional Rajasthani cuisine at Sam Sand Dunes<br>
+                        ✓ <strong style="color: #ff6f00;">English-Speaking Guide:</strong> Professional guide services in major cities<br>
+                        ✓ <strong style="color: #ff6f00;">All Monument Entry Fees:</strong> For mentioned attractions<br>
+                        ✓ <strong style="color: #ff6f00;">Desert Safari:</strong> Camel/Jeep ride at Sam Sand Dunes<br>
+                        ✓ <strong style="color: #ff6f00;">Cultural Show:</strong> Folk music and dance performance
+                    </p>
+                </div>
+            </div>
+
+            <div class="itinerary-highlights">
+                <div class="highlight-card">
+                    <h4>🏛️ Architecture & Heritage</h4>
+                    <p>Experience <strong>UNESCO World Heritage Sites</strong>, living forts, opulent palaces, and centuries-old havelis showcasing Rajputana architecture at its finest.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <h4>🏜️ Desert Adventures</h4>
+                    <p>Witness <strong>golden sand dunes</strong> of the Thar Desert, enjoy camel safaris, stay in luxury camps, and experience authentic desert life under starlit skies.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <h4>🎭 Cultural Immersion</h4>
+                    <p>Enjoy traditional <strong>folk music and dance</strong> performances, explore bustling bazaars, taste authentic cuisine, and connect with local artisans.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <h4>💎 Shopping Experiences</h4>
+                    <p>Private guided tours of <strong>Johari Bazaar</strong> for exquisite jewelry, Bandhani fabrics, blue pottery, miniature paintings, and traditional Mojari footwear.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <h4>🌅 Romantic Moments</h4>
+                    <p><strong>Sunset boat rides</strong> on Lake Pichola, rooftop dinners with illuminated City Palace views, and serene lakeside walks in the Venice of the East.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <h4>🍽️ Culinary Delights</h4>
+                    <p>Savor <strong>Dal Baati Churma, Laal Maas</strong>, Ghevar, and other Rajasthani specialties. Optional cooking class experiences available.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="decorative-divider">✦ ❋ ✦ ❋ ✦</div>
+
+        <section class="section" id="faq">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>🌡️ What is the best time to visit Rajasthan?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The best time to visit Rajasthan is from <strong>October to March</strong> when the weather is pleasant and comfortable for sightseeing. During these months, temperatures range from 10°C to 27°C, making it ideal for exploring forts, palaces, and desert safaris.</p>
+                        <p><strong>Winter (November-February):</strong> Perfect for desert camping and outdoor activities.</p>
+                        <p><strong>Summer (April-June):</strong> Very hot (up to 45°C), but fewer tourists and better hotel deals.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>🎒 What should I pack for a Rajasthan trip?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Clothing:</strong> Light cotton clothes for day, warm layers for evenings (winter), comfortable walking shoes, sunglasses, and a hat or scarf for sun protection.</p>
+                        <p><strong>Essentials:</strong> Sunscreen (SPF 50+), water bottle, camera, power bank, and any personal medications.</p>
+                        <p><strong>Tip:</strong> Dress modestly when visiting temples and religious sites. Carry a shawl or stole.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>💰 How much does a Rajasthan tour typically cost?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our 8-day Royal Journey package ranges from <strong>₹35,000 to ₹80,000 per person</strong> depending on accommodation choices (budget to luxury).</p>
+                        <p><strong>Budget Option:</strong> ₹35,000 - ₹45,000 (3-star hotels, standard transport)</p>
+                        <p><strong>Mid-Range:</strong> ₹50,000 - ₹65,000 (Heritage havelis, AC transport, meals)</p>
+                        <p><strong>Luxury:</strong> ₹70,000+ (Palace hotels, private car, all-inclusive)</p>
+                        <p>All packages include accommodation, transport, breakfast, guide services, and monument entry fees.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>🚗 How do we travel between cities?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer multiple comfortable travel options:</p>
+                        <p><strong>Private AC Car:</strong> Most popular choice, comfortable and flexible with stops for photos and refreshments.</p>
+                        <p><strong>Train:</strong> Available for longer routes like Jaisalmer to Udaipur. Experience India's rail system in AC coaches.</p>
+                        <p><strong>Flight:</strong> Available for selected routes (additional cost).</p>
+                        <p>All intercity transfers are included in your package with experienced drivers who know the best routes and stops.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>🍛 What kind of food can I expect?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Rajasthani cuisine is rich, flavorful, and diverse! Must-try dishes include:</p>
+                        <p><strong>Dal Baati Churma:</strong> Traditional Rajasthani staple - lentil curry with baked wheat balls and sweet crumble.</p>
+                        <p><strong>Laal Maas:</strong> Spicy red meat curry (for non-vegetarians).</p>
+                        <p><strong>Ghevar & Mawa Kachori:</strong> Famous sweet treats.</p>
+                        <p>We can accommodate <strong>vegetarian, vegan, and dietary restrictions</strong>. Just inform us in advance!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>🏨 What type of accommodations are provided?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer three accommodation categories:</p>
+                        <p><strong>Heritage Havelis:</strong> Authentic experience in converted aristocratic mansions with traditional architecture and modern amenities.</p>
+                        <p><strong>Luxury Palace Hotels:</strong> Live like royalty in restored palaces (Umaid Bhawan, Taj Lake Palace style properties).</p>
+                        <p><strong>Boutique Hotels:</strong> Clean, charming, and centrally located 3-4 star properties.</p>
+                        <p><strong>Special:</strong> Luxury desert camp in Jaisalmer with cultural performances included!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>👨‍👩‍👧‍👦 Is this tour family-friendly?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Absolutely!</strong> Our Rajasthan tour is perfect for families, couples, solo travelers, and groups.</p>
+                        <p><strong>Family Perks:</strong> Child-friendly activities, flexible itinerary, comfortable transport with stops, and special meals for kids.</p>
+                        <p><strong>Safety:</strong> Experienced guides, safe accommodations, and 24/7 support throughout your journey.</p>
+                        <p>We can also customize the itinerary based on your family's pace and interests!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>📸 Can I customize my itinerary?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes, definitely!</strong> While we have a suggested 8-day itinerary, we specialize in customized packages.</p>
+                        <p>You can:</p>
+                        <p>✓ Add or skip destinations based on your interests</p>
+                        <p>✓ Extend your stay in any city</p>
+                        <p>✓ Add special experiences (hot air balloon rides, cooking classes, photography tours)</p>
+                        <p>✓ Choose your accommodation level</p>
+                        <p>Contact us with your preferences, and we'll create a personalized itinerary just for you!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>🎫 Are monument entry fees included?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes!</strong> All monument and attraction entry fees are included in our package:</p>
+                        <p>✓ Amber Fort, Hawa Mahal, City Palace (Jaipur)</p>
+                        <p>✓ Mehrangarh Fort, Jaswant Thada (Jodhpur)</p>
+                        <p>✓ Jaisalmer Fort, Patwon Ki Haveli</p>
+                        <p>✓ City Palace, Lake Pichola boat ride (Udaipur)</p>
+                        <p>✓ All other mentioned attractions</p>
+                        <p>No hidden costs or surprises! Your guide will handle all ticketing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>📱 Will I have internet connectivity?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most hotels and restaurants offer <strong>free Wi-Fi</strong>. Mobile network coverage is good in all major cities (Jaipur, Jodhpur, Udaipur, Jaisalmer).</p>
+                        <p><strong>Tip:</strong> We recommend getting a local SIM card (Airtel or Jio) at the airport for uninterrupted connectivity. Your guide can help arrange this.</p>
+                        <p>Desert areas may have limited connectivity, but it's part of the authentic experience! 📵✨</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="decorative-divider">✦ ❋ ✦ ❋ ✦</div>
+
         <section class="section" id="journey">
             <h2 class="section-title">The Royal 8-Day Journey</h2>
             
@@ -701,86 +1647,87 @@
         <section class="section" id="photos">
             <h2 class="section-title">Gallery - Colors of Rajasthan</h2>
             
-             <div class="photo-grid">
+            <div class="photo-grid">
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800" alt="Amber Fort">
+                    <img src="./images/AmberFort.webp" alt="Amber Fort" onerror="this.src='https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800'">
                     <div class="photo-caption">Amber Fort, Jaipur</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1609920658906-8223bd289001?w=800" alt="Hawa Mahal">
+                    <img src="./images/hawa_mahal.jpg" alt="Hawa Mahal" onerror="this.src='https://images.unsplash.com/photo-1623393117345-70e3f7c30825?w=800'">
                     <div class="photo-caption">Hawa Mahal - Palace of Winds</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1599948210184-88954dda86e3?w=800" alt="Lake Pichola">
+                    <img src="./images/Lake_Pichola.jpeg" alt="Lake Pichola" onerror="this.src='https://images.unsplash.com/photo-1599948210184-88954dda86e3?w=800'">
                     <div class="photo-caption">Lake Pichola, Udaipur</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1524230659092-07f99a75c013?w=800" alt="Jaisalmer Fort">
+                    <img src="./images/JaisalmerFort.jpg" alt="Jaisalmer Fort" onerror="this.src='https://images.unsplash.com/photo-1608408843596-b3119736057c?w=800'">
                     <div class="photo-caption">Jaisalmer Fort - Golden City</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800" alt="Mehrangarh Fort">
+                    <img src="./images/MehrangarhFort.jpeg" alt="Mehrangarh Fort" onerror="this.src='https://images.unsplash.com/photo-1609920658906-8223bd289001?w=800'">
                     <div class="photo-caption">Mehrangarh Fort, Jodhpur</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1620766182966-c6eb5ed2b788?w=800" alt="Sam Sand Dunes">
+                    <img src="./images/SamSandDunes.cms" alt="Sam Sand Dunes" onerror="this.src='https://images.unsplash.com/photo-1495954484750-af469f2f9be5?w=800'">
                     <div class="photo-caption">Sam Sand Dunes - Desert Safari</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1585241936937-4b57c496bd96?w=800" alt="City Palace">
+                    <img src="./images/CityPalace.jpg" alt="City Palace" onerror="this.src='https://images.unsplash.com/photo-1585241936937-4b57c496bd96?w=800'">
                     <div class="photo-caption">City Palace, Udaipur</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1597074866923-dc0589150523?w=800" alt="Culture">
+                    <img src="./images/FolkDance&Culture.jpg" alt="Culture" onerror="this.src='https://images.unsplash.com/photo-1597074866923-dc0589150523?w=800'">
                     <div class="photo-caption">Folk Dance & Culture</div>
                 </div>
                 <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800" alt="Jaipur Streets">
+                    <img src="./images/ColorfulStreetsofJaipur.jpg" onerror="this.src='https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800'">
                     <div class="photo-caption">Colorful Streets of Jaipur</div>
                 </div>
             </div>
 
             <div class="info-box" style="margin-top: 3rem;">
                 <h3>Rajasthan's Rich Heritage</h3>
-                <p><strong>Famous For:</strong> Rajputana Architecture, Desert Landscapes, Textiles & Jewelry</p>
-                <p><strong>Must-Try Cuisine:</strong> Dal Baati Churma and Laal Maas</p>
-                <p><strong>Shopping:</strong> Tie-Dye Fabrics (Bandhani), Blue Pottery, Miniature Paintings, Mojari footwear</p>
-                <p><strong>Festivals:</strong> Pushkar Fair (Oct/Nov), Desert Festival (Feb)</p>
+                <p><strong style="color: #ff6f00;">Famous For:</strong> Rajputana Architecture, Desert Landscapes, Textiles & Jewelry</p>
+                <p><strong style="color: #ff6f00;">Must-Try Cuisine:</strong> Dal Baati Churma and Laal Maas</p>
+                <p><strong style="color: #ff6f00;">Shopping:</strong> Tie-Dye Fabrics (Bandhani), Blue Pottery, Miniature Paintings, Mojari footwear</p>
+                <p><strong style="color: #ff6f00;">Festivals:</strong> Pushkar Fair (Oct/Nov), Desert Festival (Feb)</p>
             </div>
         </section>
 
-        <div class="decorative-divider">✦ ❋ ✦</div>
+        <div class="decorative-divider">✦ ❋ ✦ ❋ ✦</div>
 
         <section class="section" id="contacts">
             <h2 class="section-title">Contact Us</h2>
-            <div class="info-box" style="max-width: 800px; margin: 0 auto;">
+            <div class="info-box" style="max-width: 900px; margin: 0 auto;">
                 <h3>Your Adventure Awaits</h3>
                 
-                <div style="text-align: center; margin: 2rem 0;">
-                    <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong style="color: #8b0000;">📞 Toll-Free:</strong> 1-800-ROYAL-TRIP</p>
-                    <p style="font-size: 1.2rem; margin-bottom: 1rem;"><strong style="color: #8b0000;">📧 Email:</strong> info@sandandviews.com</p>
-                    <p style="font-size: 1.2rem;"><strong style="color: #8b0000;">📍 Office:</strong> Rajasthan, India</p>
+                <div style="text-align: center; margin: 2.5rem 0;">
+                    <p style="font-size: 1.3rem; margin-bottom: 1.2rem; font-weight: 600;"><strong style="color: #d32f2f;">📞 Toll-Free:</strong> <span style="color: #ff6f00;">1-800-ROYAL-TRIP</span></p>
+                    <p style="font-size: 1.3rem; margin-bottom: 1.2rem; font-weight: 600;"><strong style="color: #d32f2f;">📧 Email:</strong> <span style="color: #ff6f00;">info@sandandviews.com</span></p>
+                    <p style="font-size: 1.3rem; font-weight: 600;"><strong style="color: #d32f2f;">📍 Office:</strong> <span style="color: #ff6f00;">Rajasthan, India</span></p>
                 </div>
 
-                <div style="background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
-                    <h4 style="color: #8b0000; margin-bottom: 1rem; text-align: center;">Why Choose Sand & Views?</h4>
-                    <p>✓ <strong>Expert Local Knowledge</strong> - Decades of experience crafting perfect itineraries</p>
-                    <p>✓ <strong>24/7 Support</strong> - Dedicated on-ground support for seamless travel</p>
-                    <p>✓ <strong>Customized Packages</strong> - Tailored to your pace and preferences</p>
-                    <p>✓ <strong>Authentic Experiences</strong> - Connect with local artisans and performers</p>
+                <div style="background: linear-gradient(135deg, #fff5e6, #ffe8cc); padding: 2rem; border-radius: 15px; margin-top: 2.5rem; border: 3px solid #ff6f00;">
+                    <h4 style="color: #d32f2f; margin-bottom: 1.5rem; text-align: center; font-size: 1.6rem; font-weight: 700;">Why Choose Sand & Views?</h4>
+                    <p style="margin-bottom: 1rem;">✓ <strong style="color: #ff6f00;">Expert Local Knowledge</strong> - Decades of experience crafting perfect itineraries</p>
+                    <p style="margin-bottom: 1rem;">✓ <strong style="color: #ff6f00;">24/7 Support</strong> - Dedicated on-ground support for seamless travel</p>
+                    <p style="margin-bottom: 1rem;">✓ <strong style="color: #ff6f00;">Customized Packages</strong> - Tailored to your pace and preferences</p>
+                    <p>✓ <strong style="color: #ff6f00;">Authentic Experiences</strong> - Connect with local artisans and performers</p>
                 </div>
 
-                <div style="background: linear-gradient(135deg, #d4af37, #ffd700); padding: 1.5rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
-                    <h4 style="color: #8b0000; margin-bottom: 0.5rem; font-size: 1.5rem;">Dream it. Book it. Live it.</h4>
-                    <p style="color: #2c1810; font-size: 1.1rem;"><em>Call us today for a free consultation</em></p>
+                <div style="background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700); padding: 2rem; border-radius: 15px; text-align: center; margin-top: 2.5rem; border: 4px solid #ff6f00; box-shadow: 0 10px 30px rgba(255,111,0,0.4);">
+                    <h4 style="color: #8b0000; margin-bottom: 0.8rem; font-size: 2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Dream it. Book it. Live it.</h4>
+                    <p style="color: #2c1810; font-size: 1.2rem; font-weight: 600;"><em>Call us today for a free consultation</em></p>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>© 2025 Sand&Views | Discover the Royal Heritage of Rajasthan</p>
-        <p style="margin-top: 1rem; opacity: 0.9;">Where Every Journey Becomes a Story</p>
+        <p style="font-size: 1.3rem; font-weight: 600;">© 2025 Sand&Views | Discover the Royal Heritage of Rajasthan</p>
+        <p style="margin-top: 1.2rem; opacity: 0.95; font-size: 1.15rem;">Where Every Journey Becomes a Story ✨</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">🌟 Follow us on social media for travel inspiration 🌟</p>
     </footer>
 
     <script>
@@ -788,5 +1735,21 @@
             const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
             window.open(url, '_blank');
         }
+
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            
+            // Close all other FAQ items
+            allFaqItems.forEach(item => {
+                if (item !== faqItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+        }
     </script>
 </body>
+</html>
